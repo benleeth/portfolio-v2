@@ -1,0 +1,51 @@
+.contact {
+    padding: 20px 0;
+
+    @media screen and (min-width: 1020px) {
+        padding: 32px 0;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 14px;
+
+        span {
+            font-size: 12px;
+            color: $error;
+        }
+    }
+
+    &__input, &__textarea {
+        margin-top: 8px;
+        font-size: 16px;
+        padding: 5px 8px;
+        border: 1px solid $black;
+        border-radius: 3px;
+        color: $andrewGreen;
+        width: 100%;
+        max-width: 680px;
+
+        &:focus {
+            outline: 1px solid $kellieBlue;
+        }
+    }
+
+    &__textarea {
+        min-height: 280px;
+    }
+
+    &__submit {
+        @extend .btn;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 260px;
+
+        &.is-submitting {
+            text-indent: -9999px;
+            background: url("../images/loading.gif") $andrewGreen no-repeat scroll 50% 50%;
+            background-size: 40px 40px;
+            border-color: $andrewGreen;
+            cursor: not-allowed;
+        }
+    }
+}

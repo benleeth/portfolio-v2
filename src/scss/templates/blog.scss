@@ -1,0 +1,19 @@
+.blog {
+
+    &__item {
+        margin-bottom: 28px;
+        text-decoration: none;
+
+        h3 {
+            margin: 8px 0 12px;
+        }
+    }
+
+    &__excerpt {
+
+        p, ol, ul {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,198 @@
+@use "sass:math";
+
+// FLEXBOX CSS GRID
+// by Laptev Pavel
+
+// VARiABLES
+// desktop grid
+$grid-desktop-columns: 16;
+$grid-desktop-sideMargin: 80px;
+$grid-desktop-gutter: 40px;
+$grid-desktop-breakpoint: 1440px;
+
+// tablet grid
+$grid-tablet-columns: 16;
+$grid-tablet-sideMargin: 60px;
+$grid-tablet-gutter: 30px;
+$grid-tablet-breakpoint: 1020px;
+
+// mobile grid
+$grid-mobile-columns: 4;
+$grid-mobile-sideMargin: 32px;
+$grid-mobile-gutter: 20px;
+$grid-mobile-breakpoint: 620px;
+
+// pixels to % variables
+$desk-grid-width: 100% - (math.div(($grid-desktop-sideMargin * 2), $grid-desktop-breakpoint) * 100%);
+$tab-grid-width: 100% - (math.div(($grid-tablet-sideMargin * 2), $grid-tablet-breakpoint) * 100%);
+$mob-grid-width: 100% - (math.div(($grid-mobile-sideMargin * 2), $grid-mobile-breakpoint) * 100%);
+
+$desk-gutter: ((math.div($grid-desktop-gutter, ($grid-desktop-breakpoint - ($grid-desktop-sideMargin * 2)))) * 100%);
+$tab-gutter: ((math.div($grid-tablet-gutter, ($grid-tablet-breakpoint - ($grid-tablet-sideMargin * 2)))) * 100%);
+$mob-gutter: ((math.div($grid-mobile-gutter, ($grid-mobile-breakpoint - ($grid-mobile-sideMargin * 2)))) * 100%);
+
+// FUNCTIONS, PLACEHOLDERS, AND MiXINS
+@function col-width($i, $columns) {
+    @return math.div(100%, $columns) * $i;
+}
+
+@mixin col-props($i, $columns, $gutter) {
+    box-sizing: border-box;
+    width: col-width($i, $columns);
+    padding-left: math.div($gutter, 2);
+    padding-right: math.div($gutter, 2);
+}
+
+@mixin columns-loop($name, $columns, $gutter) {
+    @for $i from 1 through $columns {
+        @if $i != $columns {
+            &-#{$name}-#{$i} {
+                @include col-props($i, $columns, $gutter);
+            }
+            &-#{$name}-shift-#{$i} {
+                margin-left: col-width($i, $columns);
+            }
+        } @else {
+            &-#{$name}-#{$i} {
+                @include col-props($i, $columns, $gutter);
+            }
+        }
+    }
+}
+
+@mixin grid-base($width) {
+    box-sizing: border-box;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    max-width: $grid-desktop-breakpoint;
+    width: $width;
+}
+
+// CLASSES
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.full-grid {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: baseline;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.grid {
+    @include grid-base($desk-grid-width);
+    @media screen and (max-width: $grid-tablet-breakpoint) {
+        width: $tab-grid-width;
+    }
+    @media screen and (max-width: $grid-mobile-breakpoint) {
+        width: $mob-grid-width;
+    }
+    &-0 {
+        @include grid-base(100%);
+    }
+}
+
+.col {
+    @include columns-loop(desk, $grid-desktop-columns, $desk-gutter);
+    @media screen and (max-width: $grid-tablet-breakpoint) {
+        @include columns-loop(tab, $grid-tablet-columns, $tab-gutter);
+    }
+    @media screen and (max-width: $grid-mobile-breakpoint) {
+        @include columns-loop(mob, $grid-mobile-columns, $mob-gutter);
+    }
+}
+
+.col-no-pad {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.col-no-pad--l {
+    padding-left: 0;
+}
+
+.col-no-pad--r {
+    padding-right: 0;
+}
+
+.col-desk-no-pad {
+
+    @media screen and (max-width: 1440px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.col-desk-no-pad--l {
+
+    @media screen and (max-width: 1440px) {
+        padding-left: 0;
+    }
+}
+
+.col-desk-no-pad--r {
+
+    @media screen and (max-width: 1440px) {
+        padding-right: 0;
+    }
+}
+
+.col-tab-no-pad {
+
+    @media screen and (max-width: 1020px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.col-tab-no-pad--l {
+
+    @media screen and (max-width: 1020px) {
+        padding-left: 0;
+    }
+}
+
+.col-tab-no-pad--r {
+
+    @media screen and (max-width: 1020px) {
+        padding-right: 0;
+    }
+}
+
+.col-mob-no-pad {
+
+    @media screen and (max-width: 620px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.col-mob-no-pad--l {
+
+    @media screen and (max-width: 620px) {
+        padding-left: 0;
+    }
+}
+
+.col-mob-no-pad--r {
+
+    @media screen and (max-width: 620px) {
+        padding-right: 0;
+    }
+}

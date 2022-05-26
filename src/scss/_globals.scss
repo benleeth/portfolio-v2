@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $white;
+    color: $lightBlack;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+.error {
+    color: $error;
+}
+
+.success {
+    color: $success;
+}
+
+a {
+    color: $kellieBlue;
+    @extend %transition;
+
+    &:hover {
+        color: $andrewGreen;
+    }
+}
+
+form {
+    width: 100%;
+
+    input, textarea {
+        width: 100%;
+    }
+}
+
+ul, ol {
+
+    &.reset {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.section-title {
+    color: $lightGreen;
+    width: 100%;
+    margin: 0 0 26px;
+    padding: 0 0 14px;
+    border-bottom: 1px solid $lightGreen;
+}
+
+.btn {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background: none;
+    color: $kellieBlue;
+    text-decoration: none;
+    padding: 6px 8px;
+    border: 2px solid $kellieBlue;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    @extend %transition;
+
+    &:hover {
+        background: $andrewGreen;
+        border-color: $andrewGreen;
+        color: $white;
+    }
+
+    &--delete {
+        color: $benRed;
+        border-color: $benRed;
+
+        &:hover {
+            background: $benRed;
+            border-color: $benRed;
+            color: $white;
+        }
+    }
+}
+
+.link {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    color: $kellieBlue;
+    text-decoration: none;
+    padding: 0 0 3px 0;
+    border: none;
+    outline: none;
+    background: linear-gradient(to right, $andrewGreen, $andrewGreen 50%, $kellieBlue 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    cursor: pointer;
+    @extend %transition;
+
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+
+        use {
+            @extend %transition;
+            fill: $kellieBlue;
+        }
+    }
+
+    &:after {
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        background: $andrewGreen;
+        height: 2px;
+        width: 100%;
+        @extend %transition;
+    }
+
+    &:hover {
+        background-position: 0 100%;
+
+        svg use {
+            fill: $andrewGreen;
+        }
+
+        &:after {
+            left: 0;
+        }
+    }
+
+    &.is-active {
+        cursor: default;
+        color: $kellieBlue;
+        -webkit-text-fill-color: $kellieBlue;
+        background: none;
+
+        svg use {
+            fill: $kellieBlue;
+        }
+
+        &:after {
+            background: $kellieBlue;
+            left: 0;
+        }
+    }
+}

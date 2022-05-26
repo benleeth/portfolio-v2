@@ -1,0 +1,11 @@
+$white: #ffffff;
+$black: #000000;
+$benRed: #850802;
+$kellieBlue: #051188;
+$andrewGreen: #022820;
+$error: #ff0000;
+$success: #00ff00;
+$lightRed: lighten($benRed, 20%);
+$lightBlue: lighten($kellieBlue, 20%);
+$lightGreen: lighten($andrewGreen, 20%);
+$lightBlack: lighten($black, 10%);

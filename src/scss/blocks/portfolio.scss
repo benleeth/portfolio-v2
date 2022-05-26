@@ -1,0 +1,64 @@
+.portfolio {
+    padding: 20px 0 0;
+
+    @media only screen and (min-width: 1020px) {
+        padding-top: 32px;
+    }
+
+    &__item {
+        width: 100%;
+        margin-bottom: 20px;
+        color: $kellieBlue;
+        text-decoration: none;
+        transition: color 0.3s linear;
+
+        &:hover {
+            color: $andrewGreen;
+        }
+
+        @media only screen and (min-width: 600px) {
+            width: 48%;
+        }
+
+        @media only screen and (min-width: 1020px) {
+            width: 24%;
+            margin-bottom: 32px;
+        }
+    }
+
+    &__images {
+        position: relative;
+
+        &:hover {
+
+            .portfolio {
+
+                &__image {
+                    opacity: 1;
+                }
+
+                &__pixelated {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &__image, &__pixelated {
+        width: 100%;
+        transition: opacity 0.3s linear;
+    }
+
+    &__image {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    &__pixelated {
+        position: relative;
+        z-index: 2;
+        opacity: 1;
+    }
+}

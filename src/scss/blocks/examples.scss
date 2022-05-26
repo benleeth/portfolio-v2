@@ -1,0 +1,26 @@
+.examples {
+    margin-bottom: 12px;
+
+    @media screen and (min-width: 1020px) {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        padding-top: 20px;
+
+        @media screen and (min-width: 1020px) {
+            padding-top: 32px;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid $black;
+        padding-bottom: 16px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
