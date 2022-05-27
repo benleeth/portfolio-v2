@@ -16,7 +16,7 @@ const Portfolio = ({
       }
       <div className="col-desk-16 flex justify-between">
         {portfolioItems && portfolioItems.map((item) => (
-          <CustomLink href={ `/portfolio/${item.slug}` } className="portfolio__item">
+          <CustomLink href={ `/portfolio/${item.slug}/` } className="portfolio__item">
             <div className="portfolio__images">
               { getGatsbyImage(item.secondaryFeaturedImage, 'portfolio__pixelated') }
               { getGatsbyImage(item.featuredImage, 'portfolio__image') }

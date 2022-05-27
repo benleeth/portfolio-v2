@@ -21,6 +21,7 @@ const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const HomepageTemplate = path.resolve(`./src/templates/Homepage.js`)
+  const PortfolioTemplate = path.resolve(`./src/templates/Portfolio.js`)
   const PortfolioItemTemplate = path.resolve(`./src/templates/PortfolioItem.js`)
   const BlogTemplate = path.resolve(`./src/templates/Blog.js`)
   const BlogPostTemplate = path.resolve(`./src/templates/BlogPost.js`)
@@ -169,6 +170,23 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             url
+            smallFeaturedImage: featuredImage {
+              alternativeText
+              caption
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 600
+                    height: 600
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                    transformOptions: {
+                      cropFocus: CENTER
+                    }
+                  )
+                }
+              }
+            }
             featuredImage {
               alternativeText
               caption
@@ -260,11 +278,19 @@ exports.createPages = async ({ graphql, actions }) => {
         })
       }
 
-      // Create portfolio pages
+      // Create portfolio roll & pages
       if (result.data.allStrapiPortfolioItem) {
+        createPage({
+          path: `/portfolio/`,
+          component: PortfolioTemplate,
+          context: {
+            portfolioItems: result.data.allStrapiPortfolioItem.edges
+          }
+        })
+
         result.data.allStrapiPortfolioItem.edges.forEach(({ node }) => {
           createPage({
-            path: `/portfolio/${node.slug}`,
+            path: `/portfolio/${node.slug}/`,
             component: PortfolioItemTemplate,
             context: {
               title: node.title,
@@ -279,7 +305,7 @@ exports.createPages = async ({ graphql, actions }) => {
       // Create blog roll & pages
       if (result.data.allStrapiBlogPost) {
         createPage({
-          path: `/blog`,
+          path: `/blog/`,
           component: BlogTemplate,
           context: {
             posts: result.data.allStrapiBlogPost.edges
@@ -288,7 +314,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
         result.data.allStrapiBlogPost.edges.forEach(({ node }) => {
           createPage({
-            path: `/blog/${node.slug}`,
+            path: `/blog/${node.slug}/`,
             component: BlogPostTemplate,
             context: {
               title: node.title,

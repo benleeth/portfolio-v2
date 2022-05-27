@@ -13,7 +13,7 @@ const Header = ({
     })
   }
 
-  const isHomeFix = (isHome === 'true' || isHome) ? true : false;
+  const isHomeFix = (isHome === 'true') ? true : false;
 
   return(
     <header className="header">
@@ -32,15 +32,15 @@ const Header = ({
             }
             {!isHomeFix &&
               <>
-                <li><a className="link" href="/#about">About Me</a></li>
-                <li><a className="link" href="/#qualifications">Qualifications</a></li>
-                <li><a className="link" href="/#portfolio">Portfolio</a></li>
-                <li><a className="link" href="/#examples">Code Examples</a></li>
-                <li><a className="link" href="/#resume">Résumé</a></li>
-                <li><a className="link" href="/#contact">Contact</a></li>
+                <li><CustomLink className="link" href="/#about">About Me</CustomLink></li>
+                <li><CustomLink className="link" href="/#qualifications">Qualifications</CustomLink></li>
+                <li><CustomLink className="link" href="/#portfolio">Portfolio</CustomLink></li>
+                <li><CustomLink className="link" href="/#examples">Code Examples</CustomLink></li>
+                <li><CustomLink className="link" href="/#resume">Résumé</CustomLink></li>
+                <li><CustomLink className="link" href="/#contact">Contact</CustomLink></li>
               </>
             }
-            <li><CustomLink className="link" href="/blog">Blog</CustomLink></li>
+            <li><CustomLink className="link" href="/blog/">Blog</CustomLink></li>
           </ul>
         </nav>
       </div>
