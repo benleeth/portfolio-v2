@@ -20,7 +20,7 @@ const PortfolioTemplate = ({ pageContext }) => {
           width={ 1200 }
           aspectRatio={ 3 / 1 }
           alt="Indianapolis"
-          src={ "https://upload.wikimedia.org/wikipedia/commons/9/95/Indianapolis-1872528.jpg" }
+          src={ "https://papers.co/wallpaper/papers.co-vv12-code-screen-it-pattern-background-code-29-wallpaper.jpg" }
           formats={ ["auto", "webp", "avif"] }
         />
         <div className="portfolio-item__overlay" />

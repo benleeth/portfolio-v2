@@ -1,53 +1,34 @@
 import * as React from "react"
-import { Link } from "gatsby"
-
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+import Layout from "../components/Layout"
+import { StaticImage } from "gatsby-plugin-image"
+import SEO from "../components/SEO"
 
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <Layout classNames="portfolio-item" isHome="false">
+      <SEO
+        title="404 Not Found"
+        seoTitle="benleeth.com"
+        seoDescription="Oops!"
+      />
+      <section className="portfolio-item__banner">
+        <StaticImage
+          layout="fullWidth"
+          placeholder="blurred"
+          width={ 1200 }
+          aspectRatio={ 3 / 1 }
+          alt="404"
+          src={ "https://tldv-wordpress.s3.us-east-2.amazonaws.com/media/20211112100537/Stupid-and-funny-background-for-meetings-zoom-min.png" }
+          formats={ ["auto", "webp", "avif"] }
+        />
+        <div className="portfolio-item__overlay" />
+        <h1>
+          404<br />
+          The return of the Error!
+        </h1>
+      </section>
+    </Layout>
   )
 }
 
