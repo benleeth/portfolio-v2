@@ -31,8 +31,15 @@ class HomepageTemplate extends React.Component {
     return (
       <Layout classNames="home" isHome="true">
         <Seo
+          seoTitle={ pageContext.seo.title }
           title="Home"
-          seoDescription="Just a developer developering"
+          description={ pageContext.seo.description }
+          canonicalUrl={ pageContext.seo.canonicalUrl }
+          url="https://wwww.benleeth.com"
+          type="page"
+          published={ pageContext.createdAt }
+          modified={ pageContext.updatedAt }
+          image={ pageContext.seo.image.localFile.childImageSharp.fixed.base64 }
         />
         <section className="content-wrap">
           <Modules modules={ pageContext.modules } />

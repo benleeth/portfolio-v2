@@ -1,6 +1,6 @@
 import React from "react"
 import { SkillBars } from "react-skills"
-import { convertRating } from "../Utils"
+import { getColor } from "../Utils"
 
 class Skills extends React.Component {
   constructor(props) {
@@ -17,17 +17,12 @@ class Skills extends React.Component {
     if (ratings) {
       for (let i = 0; i < ratings.length; i++) {
         let newObj = {}
-        let level = Math.ceil((parseInt(convertRating(ratings[i].rating), 10) / 6) * 100)
+        let level = parseInt(ratings[i].rating, 10)
         newObj.name = ratings[i].text
         newObj.level = level
-        newObj.color = randomColor()
+        newObj.color = getColor(level)
         skillsData.push(newObj)
       }
-    }
-
-    function randomColor() {
-      const colors = ['#850802', '#051188', '#022820', '#ce0c03', '#0719cf', '#068167']
-      return colors[Math.floor(Math.random() * colors.length)]
     }
 
     return (

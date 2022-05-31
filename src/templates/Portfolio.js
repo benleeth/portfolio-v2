@@ -9,15 +9,17 @@ const PortfolioTemplate = ({ pageContext }) => {
   return (
     <Layout classNames="portfolio-item" isHome="false">
       <Seo
+        seoTitle="Portfolio | Ben Leeth"
         title="Ben Leeth's Portfolio"
-        seoTitle="benleeth.com"
-        seoDescription="Just a portfolio"
+        description="A collection of development items completed by me!"
+        url="https://wwww.benleeth.com/portfolio"
+        type="portfolio"
+        image="https://papers.co/wallpaper/papers.co-vv12-code-screen-it-pattern-background-code-29-wallpaper.jpg"
       />
       <section className="portfolio-item__banner">
         <StaticImage
           layout="fullWidth"
           placeholder="blurred"
-          width={ 1200 }
           aspectRatio={ 3 / 1 }
           alt="Indianapolis"
           src={ "https://papers.co/wallpaper/papers.co-vv12-code-screen-it-pattern-background-code-29-wallpaper.jpg" }
@@ -27,8 +29,8 @@ const PortfolioTemplate = ({ pageContext }) => {
         <h1>The Portfolio</h1>
       </section>
       <section className="portfolio-item__content grid">
-        {pageContext.portfolioItems.length >= 1 && pageContext.portfolioItems.map(({ node }) => (
-          <CustomLink href={ `/portfolio/${node.slug}/` } className="col-desk-4 col-tab-8 col-mob-2 blog__item">
+        {pageContext.portfolioItems.length >= 1 && pageContext.portfolioItems.map(({ node }, index) => (
+          <CustomLink key={ index } href={ `/portfolio/${node.slug}/` } className="col-desk-4 col-tab-8 col-mob-2 blog__item">
             { getGatsbyImage(node.smallFeaturedImage) }
             <h3>{ node.title }</h3>
           </CustomLink>

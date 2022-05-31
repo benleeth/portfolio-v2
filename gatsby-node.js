@@ -155,6 +155,26 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        createdAt
+        updatedAt
+        seo {
+          title
+          description
+          canonicalUrl
+          image {
+            localFile {
+              childImageSharp {
+                fixed(
+                  cropFocus: CENTER,
+                  width: 1200,
+                  height: 800
+                ) {
+                  base64
+                }
+              }
+            }
+          }
+        }
       }
       allStrapiPortfolioItem(
         sort: {
@@ -206,6 +226,26 @@ exports.createPages = async ({ graphql, actions }) => {
                       cropFocus: CENTER
                     }
                   )
+                }
+              }
+            }
+            createdAt
+            updatedAt
+            seo {
+              title
+              description
+              canonicalUrl
+              image {
+                localFile {
+                  childImageSharp {
+                    fixed(
+                      cropFocus: CENTER,
+                      width: 1200,
+                      height: 800
+                    ) {
+                      base64
+                    }
+                  }
                 }
               }
             }
@@ -273,6 +313,26 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
               }
             }
+            seoCreatedAt: createdAt
+            seoUpdateddAt: updatedAt
+            seo {
+              title
+              description
+              canonicalUrl
+              image {
+                localFile {
+                  childImageSharp {
+                    fixed(
+                      cropFocus: CENTER,
+                      width: 1200,
+                      height: 800
+                    ) {
+                      base64
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -285,7 +345,10 @@ exports.createPages = async ({ graphql, actions }) => {
           path: `/`,
           component: HomepageTemplate,
           context: {
-            modules: result.data.strapiHomePage.modules
+            modules: result.data.strapiHomePage.modules,
+            createdAt: result.data.strapiHomePage.createdAt,
+            updatedAt: result.data.strapiHomePage.updatedAt,
+            seo: result.data.strapiHomePage.seo
           }
         })
       }
@@ -308,7 +371,11 @@ exports.createPages = async ({ graphql, actions }) => {
               title: node.title,
               content: node.content,
               url: node.url,
-              featuredImage: node.featuredImage
+              featuredImage: node.featuredImage,
+              slug: node.slug,
+              seo: node.seo,
+              createdAt: node.createdAt,
+              updatedAt: node.updatedAt
             }
           })
         })
@@ -334,7 +401,11 @@ exports.createPages = async ({ graphql, actions }) => {
               title: node.title,
               content: node.content,
               excerpt: node.excerpt,
-              featuredImage: node.featuredImage
+              featuredImage: node.featuredImage,
+              slug: node.slug,
+              seo: node.seo,
+              seoCreatedAt: node.seoCreatedAt,
+              seoUpdatedAt: node.seoUpdatedAt
             }
           })
         })

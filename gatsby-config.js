@@ -5,13 +5,48 @@ require('dotenv').config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: ['blog-post', 'portfolio-item'],
+  collectionTypes: [
+    {
+      singularName: 'blog-post',
+      queryParams: {
+        populate: {
+          featuredImage: {
+            populate: '*'
+          },
+          seo: {
+            populate: '*',
+            image: {
+              populate: '*'
+            }
+          }
+        }
+      }
+    }, {
+      singularName: 'portfolio-item',
+      queryParams: {
+        populate: {
+          featuredImage: {
+            populate: '*'
+          },
+          seo: {
+            populate: '*',
+            image: {
+              populate: '*'
+            }
+          }
+        }
+      }
+    }
+  ],
   singleTypes: [
     {
       singularName: 'home-page',
       queryParams: {
         populate: {
           modules: {
+            populate: '*'
+          },
+          seo: {
             populate: '*'
           }
         }

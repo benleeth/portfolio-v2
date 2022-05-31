@@ -9,15 +9,17 @@ const BlogTemplate = ({ pageContext }) => {
   return (
     <Layout classNames="portfolio-item" isHome="false">
       <Seo
+        seoTitle="Blog | Ben Leeth"
         title="Ben Leeth's Blog"
-        seoTitle="benleeth.com"
-        seoDescription="Just a blog"
+        description="A collection of my blog posts!"
+        url="https://wwww.benleeth.com/blog"
+        type="blog"
+        image="https://upload.wikimedia.org/wikipedia/commons/9/95/Indianapolis-1872528.jpg"
       />
       <section className="portfolio-item__banner">
         <StaticImage
           layout="fullWidth"
           placeholder="blurred"
-          width={ 1200 }
           aspectRatio={ 3 / 1 }
           alt="Indianapolis"
           src={ "https://upload.wikimedia.org/wikipedia/commons/9/95/Indianapolis-1872528.jpg" }
@@ -27,8 +29,8 @@ const BlogTemplate = ({ pageContext }) => {
         <h1>The Blog</h1>
       </section>
       <section className="portfolio-item__content grid">
-        {pageContext.posts.length >= 1 && pageContext.posts.map(({ node }) => (
-          <CustomLink href={ `/blog/${node.slug}/` } className="col-desk-4 col-tab-8 col-mob-2 blog__item">
+        {pageContext.posts.length >= 1 && pageContext.posts.map(({ node }, index) => (
+          <CustomLink key={ index } href={ `/blog/${node.slug}/` } className="col-desk-4 col-tab-8 col-mob-2 blog__item">
             { getGatsbyImage(node.smallFeaturedImage) }
             <h3>{ node.title }</h3>
             <div className="blog__excerpt" dangerouslySetInnerHTML={{ __html: node.excerpt.data.childMarkdownRemark.html }} />

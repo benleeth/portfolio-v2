@@ -2,35 +2,39 @@ import React from "react"
 import Helmet from "react-helmet"
 
 const Seo = ({
-  canonical='',
-  title,
-  seoTitle=null,
-  seoDescription,
+  seoTitle='',
+  title='',
+  description='',
+  canonicalUrl='',
+  url='',
   noIndex=false,
   noFollow=false,
-  lang='en',
-  meta=[]
+  type='article',
+  published=null,
+  modified=null,
+  image=null
 }) => {
-  const newTitle = (title !== 'Home') ? `${title} | ${seoTitle}` : 'A developer | benleeth.com';
-
   return (
-    <Helmet
-      htmlAttributes={{ lang }}
-      title={ newTitle }
-      titleTemplate={ newTitle }
-      link={[
-        {
-          rel: `canonical`,
-          href: canonical
-        },
-      ]}
-      meta={[
-        {
-          name: `description`,
-          content: seoDescription,
-        }
-      ].concat(meta)}
-    />
+    <Helmet>
+      <title>{ seoTitle }</title>
+      <meta name="description" content={ description } />
+      {canonicalUrl !== url &&
+        <link rel="canonical" href={ canonicalUrl } />
+      }
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:type" content={ type } />
+      <meta property="og:title" content={ title } />
+      <meta property="og:description" content={ description } />
+      <meta property="og:url" content={ url } />
+      <meta property="og:site_name" content="Ben Leeth" />
+      <meta property="article:published_time" content={ published } />
+      {modified &&
+        <meta property="article:modified_time" content={ modified } />
+      }
+      {image &&
+        <meta property="og:image" content={ image } />
+      }
+    </Helmet>
   )
 }
 

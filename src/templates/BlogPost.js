@@ -9,9 +9,15 @@ const BlogPostTemplate = ({ pageContext }) => {
   return (
     <Layout classNames="portfolio-item" isHome="false">
       <Seo
+        seoTitle={ pageContext.seo.title }
         title={ pageContext.title }
-        seoTitle="benleeth.com"
-        seoDescription="Just a blog"
+        description={ pageContext.seo.description }
+        canonicalUrl={ pageContext.seo.canonicalUrl }
+        url={ `https://wwww.benleeth.com/blog/${pageContext.slug}` }
+        type="blog"
+        published={ pageContext.seoCreatedAt }
+        modified={ pageContext.seoUpdateddAt }
+        image={ pageContext.seo.image.localFile.childImageSharp.fixed.base64 }
       />
       <section className="portfolio-item__banner">
         {pageContext.featuredImage &&

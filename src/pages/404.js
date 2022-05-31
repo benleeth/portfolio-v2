@@ -8,9 +8,12 @@ const NotFoundPage = () => {
   return (
     <Layout classNames="portfolio-item" isHome="false">
       <Seo
+        seoTitle="404 Error | Ben Leeth"
         title="404 Not Found"
-        seoTitle="benleeth.com"
-        seoDescription="Oops!"
+        description="This is not the page you are looking for!!"
+        url="https://wwww.benleeth.com/404"
+        type="error"
+        image="https://tldv-wordpress.s3.us-east-2.amazonaws.com/media/20211112100537/Stupid-and-funny-background-for-meetings-zoom-min.png"
       />
       <section className="portfolio-item__banner">
         <StaticImage
