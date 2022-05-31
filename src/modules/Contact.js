@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import axios from "axios"
 
 const Contact = ({
-  key,
   sectionTitle='',
   showForm=true
 }) => {
@@ -17,7 +16,7 @@ const Contact = ({
       email: document.getElementById('email').value,
       comments: document.getElementById('comments').value
     }
-    axios.post('http://localhost:1337/api/ezforms/submit', {formData: form})
+    axios.post('https://admin.benleeth.com/api/ezforms/submit', {formData: form})
     .then((res) => {
       setSubmit(!submitted)
       console.log(res)

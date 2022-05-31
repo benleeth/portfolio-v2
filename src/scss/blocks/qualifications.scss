@@ -7,56 +7,7 @@
 
     &__list {
         margin: 0;
-    }
-
-    &__list-item {
-        display: flex;
-        margin-bottom: 10px;
-
-        strong {
-            flex: 1;
-            margin-right: 10px;
-        }
-    }
-
-    &__stars {
-        display: inline-block;
-        position: relative;
-        top: -6px;
-        font-size: 0;
-        width: 204px;
-        height: 30px;
-        background: url('../images/zero-stars.png');
-        background-size: cover;
-
-        &--1 {
-            background: url('../images/one-star.png');
-            background-size: cover;
-        }
-
-        &--2 {
-            background: url('../images/two-stars.png');
-            background-size: cover;
-        }
-
-        &--3 {
-            background: url('../images/three-stars.png');
-            background-size: cover;
-        }
-
-        &--4 {
-            background: url('../images/four-stars.png');
-            background-size: cover;
-        }
-
-        &--5 {
-            background: url('../images/five-stars.png');
-            background-size: cover;
-        }
-
-        &--6 {
-            background: url('../images/six-stars.png');
-            background-size: cover;
-        }
+        padding: 0 1.5625%;
+        width: 100%;
     }
 }

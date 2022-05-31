@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 
-const SEO = ({
+const Seo = ({
   canonical='',
   title,
   seoTitle=null,
@@ -34,4 +34,4 @@ const SEO = ({
   )
 }
 
-export default SEO
+export default Seo

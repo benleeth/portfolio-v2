@@ -1,14 +1,14 @@
 import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 
 const BlogPostTemplate = ({ pageContext }) => {
   const image = getImage(pageContext.featuredImage.localFile)
 
   return (
     <Layout classNames="portfolio-item" isHome="false">
-      <SEO
+      <Seo
         title={ pageContext.title }
         seoTitle="benleeth.com"
         seoDescription="Just a blog"
@@ -24,6 +24,13 @@ const BlogPostTemplate = ({ pageContext }) => {
       </section>
       <section className="portfolio-item__content grid">
         <div className="col-desk-16">
+          {!pageContext.updatedAt &&
+            <p><em>Posted on: { pageContext.createdAt }</em></p>
+          }
+          {pageContext.updatedAt &&
+            <p><em>Updated on: { pageContext.updatedAt }</em></p>
+          }
+          <br />
           {pageContext.content &&
             <div dangerouslySetInnerHTML={{ __html: pageContext.content.data.childMarkdownRemark.html }} />
           }

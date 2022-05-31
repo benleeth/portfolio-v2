@@ -2,7 +2,6 @@ import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const MediaContent = ({
-  key,
   sectionTitle='',
   mediaPosition="left",
   content=null,

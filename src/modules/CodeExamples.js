@@ -3,7 +3,6 @@ import Highlight from "react-highlight"
 import { convertLanguage } from "../Utils"
 
 const CodeExamples = ({
-  key,
   sectionTitle='',
   language='',
   codeExamples=null
@@ -17,8 +16,8 @@ const CodeExamples = ({
       }
       <div className="grid col-desk-16">
         <h4 className="examples__title">{ convertLanguage(language) }</h4>
-        {codeExamples && codeExamples.map((example) => (
-          <Highlight className={ example.language }>
+        {codeExamples && codeExamples.map((example, index) => (
+          <Highlight key={ index } className={ example.language }>
             { example.code }
           </Highlight>
         ))}

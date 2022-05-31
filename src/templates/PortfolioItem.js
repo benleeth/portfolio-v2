@@ -1,14 +1,14 @@
 import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 
 const PortfolioItemTemplate = ({ pageContext }) => {
   const image = getImage(pageContext.featuredImage.localFile)
 
   return (
     <Layout classNames="portfolio-item" isHome="false">
-      <SEO
+      <Seo
         title={ pageContext.title }
         seoTitle="benleeth.com"
         seoDescription="Just a blog"

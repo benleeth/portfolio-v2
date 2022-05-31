@@ -4,7 +4,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 //import { htmlDecode } from "../Utils"
 
 const Media = ({
-  key,
   sectionTitle='',
   download=false,
   newTab=true,

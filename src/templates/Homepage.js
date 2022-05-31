@@ -1,20 +1,45 @@
 import * as React from "react"
 import Layout from "../components/Layout"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 import Modules from "../components/Modules"
 
-const HomepageTemplate = ({ pageContext }) => {
-  return (
-    <Layout classNames="home" isHome="true">
-      <SEO
-        title="Home"
-        seoDescription="Just a developer developering"
-      />
-      <section className="content-wrap">
-        <Modules modules={ pageContext.modules } />
-      </section>
-    </Layout>
-  )
+class HomepageTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pageContext: props.pageContext
+    }
+  }
+
+  componentDidMount() {
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '')
+      const element = document.querySelector(`section.${id}`)
+      window.history.pushState('', document.title, `${window.location.pathname}${window.location.search}`)
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }, 50)
+    }
+  }
+
+  render() {
+    const { pageContext } = this.state
+
+    return (
+      <Layout classNames="home" isHome="true">
+        <Seo
+          title="Home"
+          seoDescription="Just a developer developering"
+        />
+        <section className="content-wrap">
+          <Modules modules={ pageContext.modules } />
+        </section>
+      </Layout>
+    )
+  }
 }
 
 export default HomepageTemplate

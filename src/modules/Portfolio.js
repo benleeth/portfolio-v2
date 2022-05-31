@@ -3,7 +3,6 @@ import { getGatsbyImage } from "../Utils"
 import CustomLink from "../components/CustomLink"
 
 const Portfolio = ({
-  key,
   sectionTitle='',
   portfolioItems=null
 }) => {
@@ -15,8 +14,8 @@ const Portfolio = ({
         </div>
       }
       <div className="col-desk-16 flex justify-between">
-        {portfolioItems && portfolioItems.map((item) => (
-          <CustomLink href={ `/portfolio/${item.slug}/` } className="portfolio__item">
+        {portfolioItems && portfolioItems.map((item, index) => (
+          <CustomLink key={ index } href={ `/portfolio/${item.slug}/` } className="portfolio__item">
             <div className="portfolio__images">
               { getGatsbyImage(item.secondaryFeaturedImage, 'portfolio__pixelated') }
               { getGatsbyImage(item.featuredImage, 'portfolio__image') }
@@ -25,6 +24,11 @@ const Portfolio = ({
           </CustomLink>
         ))}
       </div>
+      {portfolioItems &&
+        <div className="col-desk-16 flex justify-center">
+          <CustomLink href="/portfolio/" className="btn">View Entire Portfolio</CustomLink>
+        </div>
+      }
     </section>
   )
 }

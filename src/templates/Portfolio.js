@@ -1,14 +1,14 @@
 import * as React from "react"
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 import CustomLink from "../components/CustomLink"
 import { getGatsbyImage } from "../Utils"
 
 const PortfolioTemplate = ({ pageContext }) => {
   return (
     <Layout classNames="portfolio-item" isHome="false">
-      <SEO
+      <Seo
         title="Ben Leeth's Portfolio"
         seoTitle="benleeth.com"
         seoDescription="Just a portfolio"

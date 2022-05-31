@@ -156,7 +156,12 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allStrapiPortfolioItem {
+      allStrapiPortfolioItem(
+        sort: {
+          order: ASC,
+          fields: title
+        }
+      ) {
         edges {
           node {
             id
@@ -207,11 +212,18 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allStrapiBlogPost {
+      allStrapiBlogPost(
+        sort: {
+          order: DESC,
+          fields: createdAt
+        }
+      ) {
         edges {
           node {
             id
             slug
+            createdAt(formatString: "MMMM DD, YYYY")
+            updatedAt(formatString: "MMMM DD, YYYY")
             title
             content {
               data {
@@ -317,6 +329,8 @@ exports.createPages = async ({ graphql, actions }) => {
             path: `/blog/${node.slug}/`,
             component: BlogPostTemplate,
             context: {
+              createdAt: node.createdAt,
+              updatedAt: node.updatedAt,
               title: node.title,
               content: node.content,
               excerpt: node.excerpt,

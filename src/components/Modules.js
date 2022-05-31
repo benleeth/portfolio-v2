@@ -8,11 +8,11 @@ import Skills from "../modules/Skills"
 
 const Modules = ({ modules }) => (
   <>
-    {modules.map((module) => {
+    {modules.map((module, index) => {
       switch(module.strapi_component) {
         case "modules.code-examples" : return (
           <CodeExamples
-            key={ `${module.strapi_component}-${module.strapi_id}` }
+            key={ index }
             sectionTitle={ module.sectionTitle }
             language={ module.language }
             codeExamples={ module.code }
@@ -20,14 +20,14 @@ const Modules = ({ modules }) => (
         )
         case "modules.contact" : return (
           <Contact
-            key={ `${module.strapi_component}-${module.strapi_id}` }
+            key={ index }
             sectionTitle={ module.sectionTitle }
             showForm={ module.showForm }
           />
         )
         case "modules.media" : return (
           <Media
-            key={ `${module.strapi_component}-${module.strapi_id}` }
+            key={ index }
             sectionTitle={ module.sectionTitle }
             download={ module.download }
             newTab={ module.newTab }
@@ -37,7 +37,7 @@ const Modules = ({ modules }) => (
         )
         case "modules.media-content" : return (
           <MediaContent
-            key={ `${module.strapi_component}-${module.strapi_id}` }
+            key={ index }
             sectionTitle={ module.sectionTitle }
             mediaPosition={ module.mediaPosition }
             content={ module.content.data.childMarkdownRemark.html }
@@ -46,14 +46,14 @@ const Modules = ({ modules }) => (
         )
         case "modules.portfolio" : return (
           <Portfolio
-            key={ `${module.strapi_component}-${module.strapi_id}` }
+            key={ index }
             sectionTitle={ module.sectionTitle }
             portfolioItems={ module.portfolioItems }
           />
         )
         case "modules.skills" : return (
           <Skills
-            key={ `${module.strapi_component}-${module.strapi_id}` }
+            key={ index }
             sectionTitle={ module.sectionTitle }
             ratings={ module.skillRating }
           />

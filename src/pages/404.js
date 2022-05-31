@@ -1,13 +1,13 @@
 import * as React from "react"
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 
 // markup
 const NotFoundPage = () => {
   return (
     <Layout classNames="portfolio-item" isHome="false">
-      <SEO
+      <Seo
         title="404 Not Found"
         seoTitle="benleeth.com"
         seoDescription="Oops!"
