@@ -39,7 +39,7 @@ class HomepageTemplate extends React.Component {
           type="page"
           published={ pageContext.createdAt }
           modified={ pageContext.updatedAt }
-          image={ pageContext.seo.image.localFile.childImageSharp.fixed.base64 }
+          image={ pageContext.seo.image.localFile.childImageSharp.fixed.src }
         />
         <section className="content-wrap">
           <Modules modules={ pageContext.modules } />

@@ -1,5 +1,6 @@
 import React from "react"
 import Helmet from "react-helmet"
+import { isValidUrl } from "../Utils"
 
 const Seo = ({
   seoTitle='',
@@ -14,6 +15,8 @@ const Seo = ({
   modified=null,
   image=null
 }) => {
+  const imageUrl = (isValidUrl(image)) ? image : `https://www.benleeth.com${image}`
+
   return (
     <Helmet>
       <title>{ seoTitle }</title>
@@ -32,7 +35,7 @@ const Seo = ({
         <meta property="article:modified_time" content={ modified } />
       }
       {image &&
-        <meta property="og:image" content={ image } />
+        <meta property="og:image" content={ imageUrl } />
       }
     </Helmet>
   )

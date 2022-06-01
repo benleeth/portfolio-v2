@@ -17,7 +17,7 @@ const BlogPostTemplate = ({ pageContext }) => {
         type="blog"
         published={ pageContext.seoCreatedAt }
         modified={ pageContext.seoUpdateddAt }
-        image={ pageContext.seo.image.localFile.childImageSharp.fixed.base64 }
+        image={ pageContext.seo.image.localFile.childImageSharp.fixed.src }
       />
       <section className="portfolio-item__banner">
         {pageContext.featuredImage &&

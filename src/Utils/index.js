@@ -33,6 +33,7 @@ export function convertLanguage(string) {
     case "php" : return "PHP Examples"
     case "python" : return "Python Examples"
     case "ruby" : return "Ruby Examples"
+    case "scss" : return "SCSS Examples"
     case "sql" : return "MySQL Examples"
     default: break
   }
@@ -55,14 +56,14 @@ export function getGatsbyImage(obj, classNames='') {
  * @returns {string}
  */
 export function getColor(level) {
-  const colors = ['#850802', '#051188', '#022820']
+  const colors = ['#850802', '#022820', '#051188']
   let pointer
   if (level < 50) {
     pointer = 0
   } else if (level >= 50 && level < 80) {
-    pointer = 2
-  } else if (level >= 80) {
     pointer = 1
+  } else if (level >= 80) {
+    pointer = 2
   }
   return colors[pointer]
 }

@@ -169,7 +169,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   width: 1200,
                   height: 800
                 ) {
-                  base64
+                  src
                 }
               }
             }
@@ -243,7 +243,7 @@ exports.createPages = async ({ graphql, actions }) => {
                       width: 1200,
                       height: 800
                     ) {
-                      base64
+                      src
                     }
                   }
                 }
@@ -327,7 +327,7 @@ exports.createPages = async ({ graphql, actions }) => {
                       width: 1200,
                       height: 800
                     ) {
-                      base64
+                      src
                     }
                   }
                 }
