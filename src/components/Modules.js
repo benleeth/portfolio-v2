@@ -39,6 +39,7 @@ const Modules = ({ modules }) => (
           <MediaContent
             key={ index }
             sectionTitle={ module.sectionTitle }
+            textSpacing={ module.textSpacing }
             mediaPosition={ module.mediaPosition }
             content={ module.content.data.childMarkdownRemark.html }
             media={ module.media }

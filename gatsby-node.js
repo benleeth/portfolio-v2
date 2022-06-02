@@ -77,6 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
             strapi_component
             strapi_id
             sectionTitle
+            textSpacing
             mediaPosition
             content {
               data {

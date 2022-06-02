@@ -3,7 +3,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const MediaContent = ({
   sectionTitle='',
-  mediaPosition="left",
+  textSpacing='normal',
+  mediaPosition='left',
   content=null,
   media=null
 }) => {
@@ -21,7 +22,7 @@ const MediaContent = ({
           <GatsbyImage image={ image } alt={ media.alternativeText } className="col-desk-6 col-tab-16 col-no-pad about__media" />
         }
         {content &&
-          <div className="col-desk-10 col-tab-16 col-no-pad--r col-tab-no-pad about__notes" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className={ `col-desk-10 col-tab-16 col-no-pad--r col-tab-no-pad about__notes about__notes--${textSpacing}` } dangerouslySetInnerHTML={{ __html: content }} />
         }
       </div>
     </section>

@@ -42,9 +42,27 @@
         p {
             margin: 0 0 18px;
             font-size: 18px;
-            line-height: 1.6;
-            letter-spacing: 1px;
-            word-spacing: 8px;
+            line-height: 1.2;
+            letter-spacing: 0;
+            word-spacing: 1px;
+        }
+
+        &--narrow {
+
+            p {
+                line-height: 1;
+                letter-spacing: 0;
+                word-spacing: 0;
+            }
+        }
+
+        &--spaced {
+
+            p {
+                line-height: 1.6;
+                letter-spacing: 1px;
+                word-spacing: 6px;
+            }
         }
     }
 }

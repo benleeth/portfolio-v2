@@ -27,6 +27,7 @@ export function convertLanguage(string) {
   switch(string) {
     case "bash" : return "Shell Examples"
     case "css" : return "CSS3 Examples"
+    case "graphql" : return "GraphQL Examples"
     case "html" : return "HTML5 Examples"
     case "java" : return "Java Examples"
     case "javascript" : return "JavaScript Examples"
