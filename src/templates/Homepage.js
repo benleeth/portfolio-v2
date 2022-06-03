@@ -5,10 +5,7 @@ import Modules from "../components/Modules"
 
 class HomepageTemplate extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      pageContext: props.pageContext
-    }
+    super(props)
   }
 
   componentDidMount() {
@@ -26,7 +23,7 @@ class HomepageTemplate extends React.Component {
   }
 
   render() {
-    const { pageContext } = this.state
+    const { pageContext } = this.props
 
     return (
       <Layout classNames="home" isHome="true">

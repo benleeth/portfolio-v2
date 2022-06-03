@@ -21,7 +21,7 @@ const PortfolioTemplate = ({ pageContext }) => {
           layout="fullWidth"
           placeholder="blurred"
           aspectRatio={ 3 / 1 }
-          alt="Indianapolis"
+          alt="Code"
           src={ "https://papers.co/wallpaper/papers.co-vv12-code-screen-it-pattern-background-code-29-wallpaper.jpg" }
           formats={ ["auto", "webp", "avif"] }
         />
@@ -31,8 +31,8 @@ const PortfolioTemplate = ({ pageContext }) => {
       <section className="portfolio-item__content grid">
         {pageContext.portfolioItems.length >= 1 && pageContext.portfolioItems.map(({ node }, index) => (
           <CustomLink key={ index } href={ `/portfolio/${node.slug}/` } className="col-desk-4 col-tab-8 col-mob-2 blog__item">
-            { getGatsbyImage(node.smallFeaturedImage) }
-            <h3>{ node.title }</h3>
+            { getGatsbyImage(node.smallFeaturedImage, '') }
+            <h4>{ node.title }</h4>
           </CustomLink>
         ))}
         {pageContext.portfolioItems.length <= 0 &&

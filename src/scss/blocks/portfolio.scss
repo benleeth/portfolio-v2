@@ -34,31 +34,14 @@
             .portfolio {
 
                 &__image {
-                    opacity: 1;
-                }
-
-                &__pixelated {
-                    opacity: 0;
+                    filter: none;
                 }
             }
         }
     }
 
-    &__image, &__pixelated {
-        width: 100%;
-        transition: opacity 0.3s linear;
-    }
-
     &__image {
-        position: absolute !important;
-        z-index: 1;
-        top: 0;
-        left: 0;
-    }
-
-    &__pixelated {
-        position: relative;
-        z-index: 2;
-        opacity: 1;
+        filter: grayscale(100%) blur(3px);
+        @extend %ease;
     }
 }

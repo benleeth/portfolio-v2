@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 childImageSharp {
                   gatsbyImageData(
                     width: 300
-                    placeholder: BLURRED
+                    placeholder: TRACED_SVG
                     formats: [AUTO, WEBP, AVIF]
                   )
                 }
@@ -93,7 +93,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 childImageSharp {
                   gatsbyImageData(
                     width: 500
-                    placeholder: BLURRED
+                    placeholder: TRACED_SVG
                     formats: [AUTO, WEBP, AVIF]
                   )
                 }
@@ -116,29 +116,10 @@ exports.createPages = async ({ graphql, actions }) => {
                     gatsbyImageData(
                       width: 300
                       height: 300
-                      placeholder: BLURRED
+                      placeholder: TRACED_SVG
                       formats: [AUTO, WEBP, AVIF]
                       transformOptions: {
                         cropFocus: CENTER
-                      }
-                    )
-                  }
-                }
-              }
-              secondaryFeaturedImage: featuredImage {
-                alternativeText
-                caption
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(
-                      width: 300
-                      height: 300
-                      quality: 4
-                      placeholder: BLURRED
-                      formats: [AUTO, WEBP, AVIF]
-                      transformOptions: {
-                        cropFocus: CENTER,
-                        grayscale: true
                       }
                     )
                   }
@@ -204,7 +185,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   gatsbyImageData(
                     width: 600
                     height: 600
-                    placeholder: BLURRED
+                    placeholder: TRACED_SVG
                     formats: [AUTO, WEBP, AVIF]
                     transformOptions: {
                       cropFocus: CENTER
@@ -221,7 +202,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   gatsbyImageData(
                     width: 1200
                     height: 600
-                    placeholder: BLURRED
+                    placeholder: TRACED_SVG
                     formats: [AUTO, WEBP, AVIF]
                     transformOptions: {
                       cropFocus: CENTER
@@ -288,7 +269,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   gatsbyImageData(
                     width: 600
                     height: 600
-                    placeholder: BLURRED
+                    placeholder: TRACED_SVG
                     formats: [AUTO, WEBP, AVIF]
                     transformOptions: {
                       cropFocus: CENTER
@@ -305,7 +286,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   gatsbyImageData(
                     width: 1200
                     height: 600
-                    placeholder: BLURRED
+                    placeholder: TRACED_SVG
                     formats: [AUTO, WEBP, AVIF]
                     transformOptions: {
                       cropFocus: CENTER

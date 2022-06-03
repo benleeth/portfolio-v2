@@ -17,7 +17,6 @@ const Portfolio = ({
         {portfolioItems && portfolioItems.map((item, index) => (
           <CustomLink key={ index } href={ `/portfolio/${item.slug}/` } className="portfolio__item">
             <div className="portfolio__images">
-              { getGatsbyImage(item.secondaryFeaturedImage, 'portfolio__pixelated') }
               { getGatsbyImage(item.featuredImage, 'portfolio__image') }
             </div>
             <h5 className="portfolio__heading">{ item.title }</h5>
