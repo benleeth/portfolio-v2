@@ -3,13 +3,13 @@ import { Link } from "gatsby"
 import { isValidUrl } from "../Utils"
 
 const CustomLink = ({
-  href="",
-  className="",
-  title="",
-  target="_self",
+  href='',
+  className='',
+  title='',
+  target='_self',
   children=null
 }) => {
-  const url = `www.benleeth.com`
+  const url = `https://www.benleeth.com`
   let render
 
   if (href && href.charAt(0) === '#') {

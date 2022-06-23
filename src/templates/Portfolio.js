@@ -19,7 +19,7 @@ const PortfolioTemplate = ({ pageContext }) => {
       <section className="portfolio-item__banner">
         <StaticImage
           layout="fullWidth"
-          placeholder="blurred"
+          placeholder="tracedSvg"
           aspectRatio={ 3 / 1 }
           alt="Code"
           src={ "https://papers.co/wallpaper/papers.co-vv12-code-screen-it-pattern-background-code-29-wallpaper.jpg" }

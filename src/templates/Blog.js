@@ -19,10 +19,11 @@ const BlogTemplate = ({ pageContext }) => {
       <section className="portfolio-item__banner">
         <StaticImage
           layout="fullWidth"
-          placeholder="blurred"
+          placeholder="tracedSvg"
           aspectRatio={ 3 / 1 }
           alt="Indianapolis"
           src={ "https://upload.wikimedia.org/wikipedia/commons/9/95/Indianapolis-1872528.jpg" }
+          transformOptions={{ cropFocus: "top" }}
           formats={ ["auto", "webp", "avif"] }
         />
         <div className="portfolio-item__overlay" />

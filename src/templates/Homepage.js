@@ -4,10 +4,6 @@ import Seo from "../components/Seo"
 import Modules from "../components/Modules"
 
 class HomepageTemplate extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     if (window.location.hash) {
       const id = window.location.hash.replace('#', '')
